@@ -1,19 +1,23 @@
 # WebStorageの理解
 
-Web Storage には、以下の 2 種類の仕組みがあります:
+Web Storage には、以下の 2 種類の仕組みがある:
 
 * `sessionStorage` は、ページのセッション中 (ページの再読み込みや復元を含む、ブラウザーを開いている間) に使用可能な、オリジンごとに区切られた保存領域を管理します。
     * セッションデータのみを保存します。つまり、データはブラウザ（またはタブ）が閉じられるまで保存されます。
     * データがサーバに転送されることはありません。
     * ストレージの制限がクッキーよりも大きいです（最大 5MB ）。
 * `localStorage` も同様ですが、こちらはブラウザーを閉じたり再び開いたりしても持続します。
-    * 有効期限なしでデータを保存し、 JavaScript を介してクリアされます。もしくは、ブラウザキャッシュ/ローカルに保存したデータのクリアによりクリアされます。
-    * ストレージ制限は3つの中で最大です。
+    * 有効期限なしでデータを保存し、 JavaScript を介してクリアされます。もしくは、手動でクリアされます。
+    * ストレージ容量はlocalStorage、sessionStorage、Cookie3つの中で最大です。
 
 ## 実装
 ```
-Window.localStorage
-Window.sessionStorage
+localStorage.setItem(Key, Value)
+localStorage.getItem(Key)
+
+sessionStorage.setItem(Key, Value)
+sessionStorage.getItem(Key)
+
 ```
 
 # Cookieの理解
