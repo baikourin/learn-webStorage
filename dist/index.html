@@ -5,7 +5,12 @@
         <title>localStorage test</title>
     </head>
     <body>
-        <h1>localStorage test!!!!</h1>
+        <h1>webStorage learn</h1>
+        <div style="border-bottom: 1px solid #ccc"></div>
+
+        <div class="js-localstorage"></div>
+        <div class="js-sessionstorage"></div>
+        <div class="js-cookie"></div>
     </body>
     <script>
         function setCookie(cname, cvalue, exdays) {
@@ -33,22 +38,25 @@
         }
 
         // localStorage
-        localStorage.setItem('name1', 'localStorage1')
-        localStorage.setItem('name2', 'localStorage2')
-        console.log('localStorage, name1 name2:', localStorage.getItem('name1'), localStorage.getItem('name2'));
-        localStorage.removeItem('name1');
-        console.log('localStorage, name1 name2:', localStorage.getItem('name1'), localStorage.getItem('name2'));
+        localStorage.setItem('name', 'localStorage')
+        console.log('localStorage, name:', localStorage.getItem('name'));
+        // localStorage.removeItem('name');
         // localStorage.clear();
-        console.log('localStorage, name1 name2:', localStorage.getItem('name1'), localStorage.getItem('name2'));
-        // console.log('Storage::', Storage.getItem('name1'))
+        const localStorageEl = document.querySelector('.js-localstorage')
+        localStorageEl.innerHTML = "<h2>localStorage, name:: " + localStorage.getItem('name') + "</h2>"
+        
         // sessionStorage
-        sessionStorage.setItem('name1', 'sessionStorage')
+        sessionStorage.setItem('name', 'sessionStorage')
+        const sessionStorageEl = document.querySelector('.js-sessionstorage')
+        sessionStorageEl.innerHTML = "<h2>sessionstorage, name:: " + sessionStorage.getItem('name') + "</h2>"
 
 
         //cookie
-        // document.cookie = 'test1=hello; expires=Mon, 12 Feb 2022 01:00:00 GMT';
-        document.cookie = 'test2=hello2; expires=Mon, 12 Feb 2022 01:00:00 GMT';
-        setCookie('functionSetCookie', 'test22', 1)
+        document.cookie = 'test1=hello; expires=Mon, 12 Feb 2022 01:00:00 GMT';
+        setCookie('functionSetCookie', 'functionSetCookie', 1)
+        
         let cookies = document.cookie.split(';')
+        const cookieEl = document.querySelector('.js-cookie')
+        cookieEl.innerHTML = "<h2>cookies, value:: " + getCookie('functionSetCookie') + "</h2>"
     </script>
 </html>
