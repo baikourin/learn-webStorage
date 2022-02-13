@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>localStorage test</title>
+    </head>
+    <body>
+        <h1>localStorage test!!!!</h1>
+    </body>
+    <script>
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + "; " + expires+"; path=/"
+            console.log(d)
+        }
+        
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while(c.charAt(0) == ' ') c = c.substring(1);
+                if(c.indexOf(name) != -1) return c.substring(name.length, c.length);
+            }
+            return "";
+        }
+
+        // cookie 削除
+        function clearCookie(name) {
+            setCookie(name, "", -1);
+        }
+
+        // localStorage
+        localStorage.setItem('name1', 'localStorage1')
+        localStorage.setItem('name2', 'localStorage2')
+        console.log('localStorage, name1 name2:', localStorage.getItem('name1'), localStorage.getItem('name2'));
+        localStorage.removeItem('name1');
+        console.log('localStorage, name1 name2:', localStorage.getItem('name1'), localStorage.getItem('name2'));
+        // localStorage.clear();
+        console.log('localStorage, name1 name2:', localStorage.getItem('name1'), localStorage.getItem('name2'));
+        // console.log('Storage::', Storage.getItem('name1'))
+        // sessionStorage
+        sessionStorage.setItem('name1', 'sessionStorage')
+
+
+        //cookie
+        // document.cookie = 'test1=hello; expires=Mon, 12 Feb 2022 01:00:00 GMT';
+        document.cookie = 'test2=hello2; expires=Mon, 12 Feb 2022 01:00:00 GMT';
+        setCookie('functionSetCookie', 'test22', 1)
+        let cookies = document.cookie.split(';')
+    </script>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "webstorage",
+  "description": "learn web storage",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "bs": "node server.js",
+    "dev": "npm run bs"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.27.7"
+  }
+}
